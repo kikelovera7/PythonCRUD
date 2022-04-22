@@ -21,6 +21,8 @@ def createUser():
         'email':request.json['email'],
         'password': request.json['password']
     })
+    print("ID INSERTED USER :")
+    print(str(ObjectId(id.inserted_id)))
     ## Here we use the ObjectId class to get the mongodb insertion ID, and we pass it as a response to the request
     return jsonify(id = str(ObjectId(id.inserted_id)))
     
