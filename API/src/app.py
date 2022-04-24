@@ -19,7 +19,7 @@ def createUser():
     id = db.insert_one({
         'name':request.json['name'],
         'email':request.json['email'],
-        'password': request.json['password']
+        'phone': request.json['phone']
     })
     print("ID INSERTED USER :")
     print(str(ObjectId(id.inserted_id)))
@@ -36,9 +36,9 @@ def getUsers():
             '_id': str(ObjectId(doc['_id'])),
             'name': doc['name'],
             'email': doc['email'],
-            'password': doc['password']
+            'phone': doc['phone']
         })
-    print(users[0])
+    #print(users[0])
     return jsonify(users)
     
 
@@ -53,7 +53,7 @@ def getUser(id):
         '_id': str(ObjectId(user['_id'])),
         'name': user['name'],
         'email': user['email'],
-        'password': user['password']
+        'phone': user['phone']
     })
 
 
@@ -71,9 +71,9 @@ def updateUser(id):
     db.update_one({'_id': ObjectId(id)}, {'$set':{
         'name': request.json['name'],
         'email': request.json['email'],
-        'password': request.json['password']
+        'phone': request.json['phone']
     }})
-    return 'received'
+    return {'message':"message received"}
 
 if __name__ == "__main__":
     app.run(debug=True)

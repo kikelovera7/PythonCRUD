@@ -7,7 +7,7 @@ function App(){
   return (
     <Router>
       <NavBar/>
-      <div className='container p-4'>
+      <div className='container pt-4'>
         <Routes>
           <Route path="/About" element={<About/>} />
           <Route path='/' element={<Users/>}/>
